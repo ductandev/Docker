@@ -28,6 +28,15 @@ sudo usermod -aG docker $USER
 ```
 Logout sau đó login lại để có hiệu lực.
 
+========================================================================================
+```
+$ docker                      Liệt kê tất cả các lệnh con trong docker
+$ docker image --help         Đưa ra các hướng dẫn trợ giúp về các lệnh con có trong image, và tương tự với các lệnh khác
+```
+![image](https://user-images.githubusercontent.com/42485856/133465267-0c271afe-182d-40d1-808d-d40d3f1572f8.png)
+
+[Image]() trong docker là những phần mềm được đóng gói và quản lý bởi docker. VD như image đóng gói phần mềm php, image đóng gói hệ điều hành ubuntu...vv. Trong docker các [image]() "**chỉ có thể đọc không thể sửa đổi**". Khi [image]() được docker khởi chạy thì phiên bản thực thi của image được gọi là các [container](). Các [container]() thì "**có thể ghi được các dữ liệu vào trong đó**'. Như vậy là để có [container]() để chạy các ứng dụng thì chúng ta phải có [image]() trước
+
 
 ## 1. Kiểm tra phiên bản docker
 `$ docker --version`
