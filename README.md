@@ -92,9 +92,8 @@ docker container rm containerid
 docker run -it repository:lastest                                           (chạy image phiên bản cuối cùng)
 docker run -it imageid                                                    
 ```
-- t nó có nghĩa là console, cho phép kết nối với terminal để tương tác
-- i có nghĩa duy trì mở stdin để nhập lệnh.
-
+- -i  có nghĩa duy trì mở stdin để nhập lệnh.
+- -t  nó có nghĩa là console, cho phép kết nối với terminal để tương tác \
 Kiểm tra thông tin phiên bản của image ubuntu:
 ```
 cat /etc/*release
@@ -140,4 +139,33 @@ docker stop name
 ## 14. Dừng và thoát hẳn container trong terminal
 ```
 exit
+```
+
+### Một vài tham số khác:
+
+Tạo và chạy container, container tự xóa khi kết thúc thì thêm vào tham số --rm
+```
+docker run -it --rm ubuntu
+```
+Tạo và chạy container - khi container chạy thi hành ngay một lệnh nào đó, ví dụ ls -la
+```
+docker run -it --rm debian ls -la
+```
+Tạo và chạy container - ánh xạ một thự mục máy host vào một thư mục container, chia sẻ dữ liệu
+```
+docker run -it --rm -v path-in-host:path-in-container debian
+```
+Vào container đang đang chạy
+
+Kiểm tra xem bằng lệnh docker ps, nếu có một container với ID là containerid đang chạy, để quay quay trở lại terminal của nó dùng lệnh:
+```
+docker container attach containerid
+```
+Chạy một container đang dừng
+```
+docker container start -i containerid
+```
+Nếu cần xóa bỏ hẳn một container thì dùng lệnh
+```
+docker container rm containerid
 ```
