@@ -81,6 +81,12 @@ docker pull repository                                                      (M�
 docker container ls -a
 docker container ls --all
 ```
+![image](https://user-images.githubusercontent.com/42485856/133483878-2abf20bf-aa8d-4d7d-b581-d768da346cc1.png)
+
+- **CONTAINER ID**: một con số (mã hash) gán cho container, bạn dùng mã này để quản lý container này, như xóa bỏ, khởi động, dừng lại ...
+- **IMAGE**: cho biết container sinh ra từ image nào.
+- **COMMAND**: cho biết lệnh, ứng dụng chạy khi container chạy (/bin/bash là terminate)
+- **STATUS**: cho biết trạng thái, (exit - đang dừng)
 
 ## 6. Xóa container
 ```
