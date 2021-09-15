@@ -43,6 +43,11 @@ Khi một phiên bản của [image]() chạy, phiên bản chạy đó gọi l�
 
 Bước đầu, để có [image]() nào đó bạn tải về từ https://hub.docker.com/search?q=&type=image, tại đó có đủ các loại phù hợp với công việc của bạn!
 
+- **Repository**: là tên của image
+- **TAG**: là phiên bản của image, với giá trị latest có nghĩa là bản cuối. Muốn tải về bản khác latest vào mục TAGS trên hub.docker.com tìm bản phù hợp.
+- **IMAGE ID**: là một chuỗi định danh duy nhất của image trên hệ thống của bạn.
+
+
 ## 1. Kiểm tra phiên bản docker
 `$ docker --version`
 Hoặc thông tin chi tiết hơn:
