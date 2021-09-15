@@ -46,9 +46,9 @@ Bước đầu, để có [image]() nào đó bạn tải về từ https://hub.
 - **Repository**: là tên của image
 - **TAG**: là phiên bản của image, với giá trị latest có nghĩa là bản cuối. Muốn tải về bản khác latest vào mục TAGS trên https://hub.docker.com/search?q=&type=image tìm bản phù hợp.
 - **IMAGE ID**: là một chuỗi định danh duy nhất của image trên hệ thống của bạn.
-
-$ docker search ubuntu  
-
+```
+$ docker search ubuntu         Tìm kiếm các phiên bản trực tiếp bằng lệnh docker
+```
 
 ## 1. Kiểm tra phiên bản docker
 `$ docker --version`
@@ -59,10 +59,15 @@ Hoặc thông tin chi tiết hơn:
 docker images -a
 
 ## 3. Xóa một image (phải không container nào đang dùng)
-docker images rm imageid
+```
+docker image rm imageid                         Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
+docker image image:tag
+```
 
 ## 4. Tải về một image (imagename) từ hub.docker.com
-docker pull imagename
+```
+docker pull image:tag                                VD: docker pull ubuntu:20.04
+```
 
 ## 5. Liệt kê các container
 docker container ls -a
