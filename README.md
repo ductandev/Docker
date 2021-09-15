@@ -9,35 +9,35 @@ git remote add origin https://github.com/ductandev/Docker.git
 git push -u origin main
 ```
 
-## kiểm tra phiên bản
+## 1. Kiểm tra phiên bản
 docker --version
 
-## liệt kê các image
+## 2. Liệt kê các image
 docker images -a
 
-## xóa một image (phải không container nào đang dùng)
+## 3. Xóa một image (phải không container nào đang dùng)
 docker images rm imageid
 
-## tải về một image (imagename) từ hub.docker.com
+## 4. Tải về một image (imagename) từ hub.docker.com
 docker pull imagename
 
-## liệt kê các container
+## 5. Liệt kê các container
 docker container ls -a
 
-## xóa container
+## 6. Xóa container
 docker container rm containerid
 
-## tạo mới một container
+## 7. Tạo mới một container
 docker run -it imageid 
 
-## thoát termial vẫn giữ container đang chạy
+## 8. Thoát termial vẫn giữ container đang chạy
 CTRL +P, CTRL + Q
 
-## Vào termial container đang chạy
+## 9. Vào termial container đang chạy
 docker container attach containerid
 
-## Chạy container đang dừng
+## 10. Chạy container đang dừng
 docker container start -i containerid
 
-## Chạy một lệnh trên container đang chạy
+## 11. Chạy một lệnh trên container đang chạy
 docker exec -it containerid command
