@@ -57,6 +57,7 @@ Hoặc thông tin chi tiết hơn:
 
 ## 2. Liệt kê tất cả các image
 ```
+docker images
 docker images -a
 ```
 
@@ -98,28 +99,41 @@ cat /etc/*release
 ```
 docker ps
 ```
-
-## 9. Thoát termial vẫn giữ container đang chạy
+Nếu muốn liệt kê tất cả các container kể cả những container không chạy gõ lệnh
 ```
-CTRL +P, CTRL + Q
-```
-
-## 10. Dừng và thoát hẳn container
-```
-exit
+docker ps -a
 ```
 
-## 11. Vào termial container đang chạy
+## 9. Vào termial container đang chạy
 ```
+docker attach containerid
 docker container attach containerid
 ```
 
-## 12. Chạy container đang dừng
+## 10. Chạy container đang dừng
 ```
+docker start containerid
 docker container start -i containerid
 ```
 
-## 13. Chạy một lệnh trên container đang chạy
+## 11. Chạy một lệnh trên container đang chạy
 ```
 docker exec -it containerid command
+```
+
+## 12. Thoát termial vẫn giữ container đang chạy
+```
+CTRL + P, CTRL + Q
+CRT + P rồi Q
+```
+
+## 13. Đang đứng ở host ép container bắt buộc dừng lại
+```
+docker stop containerid
+docker stop name
+```
+
+## 14. Dừng và thoát hẳn container trong terminal
+```
+exit
 ```
