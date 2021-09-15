@@ -47,7 +47,7 @@ Bước đầu, để có [image]() nào đó bạn tải về từ https://hub.
 - **TAG**: là phiên bản của image, với giá trị latest có nghĩa là bản cuối. Muốn tải về bản khác latest vào mục TAGS trên https://hub.docker.com/search?q=&type=image tìm bản phù hợp.
 - **IMAGE ID**: là một chuỗi định danh duy nhất của image trên hệ thống của bạn.
 ```
-$ docker search ubuntu         Tìm kiếm các phiên bản trực tiếp bằng lệnh docker
+$ docker search ubuntu                                                      Tìm kiếm các phiên bản trực tiếp bằng lệnh docker
 ```
 
 ## 1. Kiểm tra phiên bản docker
@@ -63,22 +63,23 @@ docker images -a
 
 ## 3. Xóa một image (phải không container nào đang chạy)
 ```
-docker image rm imageid                         Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
+docker image rm imageid                                                     Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
 docker image rm repository:tag
 ```
 
 ## 4. Tải về một image (imagename) từ hub.docker.com
 ```
-docker pull repository:tag                                VD: docker pull ubuntu:20.04
+docker pull repository:tag                                                  VD: docker pull ubuntu:20.04
 ```
-Hoặc tải về bản cuối
+Hoặc tải về bản mới nhất
 ```
-docker pull repository
+docker pull repository                                                      (Mặc định sẽ tải phiên bản mới nhất )
 ```
 
-## 5. Liệt kê các container
+## 5. Liệt kê tất cả các container
 ```
 docker container ls -a
+docker container ls --all
 ```
 
 ## 6. Xóa container
@@ -88,9 +89,12 @@ docker container rm containerid
 
 ## 7. Tạo mới và Chạy một container
 ```
-docker run -it repository:lastest           (chạy image phiên bản cuối cùng)
-docker run -it imageid                      (kết nối với terminal -t)
+docker run -it repository:lastest                                           (chạy image phiên bản cuối cùng)
+docker run -it imageid                                                    
 ```
+- t nó có nghĩa là console, cho phép kết nối với terminal để tương tác
+- i có nghĩa duy trì mở stdin để nhập lệnh.
+
 Kiểm tra thông tin phiên bản của image ubuntu:
 ```
 cat /etc/*release
