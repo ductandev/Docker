@@ -96,6 +96,7 @@ docker container rm containerid
 ## 7. Xóa container đang chạy
 ```
 docker rm -f NAME
+docker rm -f ID
 ```
 
 ## 8. Tạo mới và Chạy một container
