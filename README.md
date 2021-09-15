@@ -22,7 +22,7 @@ $ apt-cache policy docker-ce
 $ sudo apt install docker-ce
 $ sudo systemctl status docker
 ```
-Sau khi cài đặt, bạn có thể cho user hiện tại thuộc group docker, để khi gõ lệnh không cần xin quyền **sudo**
+Sau khi cài đặt, bạn có thể cho user hiện tại thuộc group docker, để khi gõ lệnh không cần xin quyền "**sudo**"
 ```
 sudo usermod -aG docker $USER
 ```
@@ -69,6 +69,9 @@ docker image rm Tên_image:tag
 ## 4. Tải về một image (imagename) từ hub.docker.com
 ```
 docker pull Tên_image:tag                                VD: docker pull ubuntu:20.04
+
+#Hoặc tải về bản cuối
+docker pull nameimage
 ```
 
 ## 5. Liệt kê các container
@@ -85,6 +88,10 @@ docker container rm containerid
 ```
 docker run -it Tên_image:lastest
 docker run -it imageid                      (kết nối với terminal -t)
+```
+Kiểm tra thông tin phiên bản của image ubuntu:
+```
+cat /etc/*release
 ```
 
 ## 8. Thoát termial vẫn giữ container đang chạy
