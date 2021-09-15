@@ -56,36 +56,51 @@ Hoặc thông tin chi tiết hơn:
 `$ docker info`
 
 ## 2. Liệt kê tất cả các image
+```
 docker images -a
+```
 
 ## 3. Xóa một image (phải không container nào đang dùng)
 ```
 docker image rm imageid                         Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
-docker image image:tag
+docker image rm Tên_image:tag
 ```
 
 ## 4. Tải về một image (imagename) từ hub.docker.com
 ```
-docker pull image:tag                                VD: docker pull ubuntu:20.04
+docker pull Tên_image:tag                                VD: docker pull ubuntu:20.04
 ```
 
 ## 5. Liệt kê các container
+```
 docker container ls -a
+```
 
 ## 6. Xóa container
+```
 docker container rm containerid
+```
 
 ## 7. Tạo mới và Chạy một container
-docker run -it imageid `
+```
+docker run -it Tên_image:lastest
+docker run -it imageid                      (kết nối với terminal -t)
+```
 
 ## 8. Thoát termial vẫn giữ container đang chạy
 CTRL +P, CTRL + Q
 
 ## 9. Vào termial container đang chạy
+```
 docker container attach containerid
+```
 
 ## 10. Chạy container đang dừng
+```
 docker container start -i containerid
+```
 
 ## 11. Chạy một lệnh trên container đang chạy
+```
 docker exec -it containerid command
+```
