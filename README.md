@@ -64,16 +64,16 @@ docker images -a
 ## 3. Xóa một image (phải không container nào đang chạy)
 ```
 docker image rm imageid                         Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
-docker image rm Tên_image:tag
+docker image rm repository:tag
 ```
 
 ## 4. Tải về một image (imagename) từ hub.docker.com
 ```
-docker pull Tên_image:tag                                VD: docker pull ubuntu:20.04
+docker pull repository:tag                                VD: docker pull ubuntu:20.04
 ```
 Hoặc tải về bản cuối
 ```
-docker pull Tên_image
+docker pull repository
 ```
 
 ## 5. Liệt kê các container
@@ -88,7 +88,7 @@ docker container rm containerid
 
 ## 7. Tạo mới và Chạy một container
 ```
-docker run -it Tên_image:lastest
+docker run -it repository:lastest           (chạy image phiên bản cuối cùng)
 docker run -it imageid                      (kết nối với terminal -t)
 ```
 Kiểm tra thông tin phiên bản của image ubuntu:
