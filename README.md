@@ -187,3 +187,4 @@ Nếu cần xóa bỏ hẳn một container thì dùng lệnh
 ```
 docker container rm containerid
 ```
+![image](https://user-images.githubusercontent.com/42485856/133487593-b81f3306-9f5e-412c-a50d-9a49713c0e13.png)
