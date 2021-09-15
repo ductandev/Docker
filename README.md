@@ -60,7 +60,7 @@ Hoặc thông tin chi tiết hơn:
 docker images -a
 ```
 
-## 3. Xóa một image (phải không container nào đang dùng)
+## 3. Xóa một image (phải không container nào đang chạy)
 ```
 docker image rm imageid                         Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
 docker image rm Tên_image:tag
@@ -69,9 +69,10 @@ docker image rm Tên_image:tag
 ## 4. Tải về một image (imagename) từ hub.docker.com
 ```
 docker pull Tên_image:tag                                VD: docker pull ubuntu:20.04
-
-#Hoặc tải về bản cuối
-docker pull nameimage
+```
+Hoặc tải về bản cuối
+```
+docker pull Tên_image
 ```
 
 ## 5. Liệt kê các container
@@ -93,21 +94,32 @@ Kiểm tra thông tin phiên bản của image ubuntu:
 ```
 cat /etc/*release
 ```
+### 8. Kiểm tra có các container nào đang chạy
+```
+docker ps
+```
 
-## 8. Thoát termial vẫn giữ container đang chạy
+## 9. Thoát termial vẫn giữ container đang chạy
+```
 CTRL +P, CTRL + Q
+```
 
-## 9. Vào termial container đang chạy
+## 10. Dừng và thoát hẳn container
+```
+exit
+```
+
+## 11. Vào termial container đang chạy
 ```
 docker container attach containerid
 ```
 
-## 10. Chạy container đang dừng
+## 12. Chạy container đang dừng
 ```
 docker container start -i containerid
 ```
 
-## 11. Chạy một lệnh trên container đang chạy
+## 13. Chạy một lệnh trên container đang chạy
 ```
 docker exec -it containerid command
 ```
