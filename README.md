@@ -61,13 +61,7 @@ docker images
 docker images -a
 ```
 
-## 3. Xóa một image (phải không container nào đang chạy)
-```
-docker image rm imageid                                                     Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
-docker image rm repository:tag
-```
-
-## 4. Tải về một image (imagename) từ hub.docker.com
+## 3. Tải về một image (imagename) từ hub.docker.com
 ```
 docker pull repository:tag                                                  VD: docker pull ubuntu:20.04
 ```
@@ -76,7 +70,7 @@ Hoặc tải về bản mới nhất
 docker pull repository                                                      (Mặc định sẽ tải phiên bản mới nhất )
 ```
 
-## 5. Liệt kê tất cả các container
+## 4. Liệt kê tất cả các container
 ```
 docker container ls -a
 docker container ls --all
@@ -88,14 +82,25 @@ docker container ls --all
 - **COMMAND**: cho biết lệnh, ứng dụng chạy khi container chạy (/bin/bash là terminate)
 - **STATUS**: cho biết trạng thái, (exit - đang dừng)
 
+## 5. Xóa một image (phải không container nào đang chạy)
+```
+docker image rm imageid                                                     Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
+docker image rm repository:tag
+```
+
 ## 6. Xóa container
 ```
 docker container rm containerid
 ```
 
-## 7. Tạo mới và Chạy một container
+## 7. Xóa container đang chạy
 ```
-docker run -it repository:lastest                                           (chạy image phiên bản cuối cùng)
+docker rm -f NAME
+```
+
+## 8. Tạo mới và Chạy một container
+```
+docker run -it repository:tag
 docker run -it imageid                                                    
 ```
 - -i  có nghĩa duy trì mở stdin để nhập lệnh.
@@ -104,7 +109,7 @@ Kiểm tra thông tin phiên bản của image ubuntu:
 ```
 cat /etc/*release
 ```
-### 8. Kiểm tra có các container nào đang chạy
+### 9. Kiểm tra có các container nào đang chạy
 ```
 docker ps
 ```
@@ -113,41 +118,47 @@ Nếu muốn liệt kê tất cả các container kể cả những container kh
 docker ps -a
 ```
 
-## 9. Vào termial container đang chạy
+## 10. Vào termial container đang chạy
 ```
 docker attach containerid
 docker container attach containerid
 ```
 
-## 10. Chạy container đang dừng
+## 11. Chạy container đang dừng
 ```
 docker start containerid
 docker container start -i containerid
 ```
 
-## 11. Chạy một lệnh trên container đang chạy
+## 12. Chạy một lệnh trên container đang chạy
 ```
 docker exec -it containerid command
 ```
 
-## 12. Thoát termial vẫn giữ container đang chạy
+## 13. Thoát termial vẫn giữ container đang chạy
 ```
 CTRL + P, CTRL + Q
 CRT + P rồi Q
 ```
 
-## 13. Đang đứng ở host ép container bắt buộc dừng lại
+## 14. Đang đứng ở host ép container bắt buộc dừng lại
 ```
 docker stop containerid
 docker stop name
 ```
 
-## 14. Dừng và thoát hẳn container trong terminal
+## 15. Dừng và thoát hẳn container trong terminal
 ```
 exit
 ```
 
-### Một vài tham số khác:
+## 16. Đặt tên cho container, đặt hostname cho container 
+Cấu trúc: `docker run -it "CONTAINER NAME" -h HOSTNAME image`
+```
+docker run -it --name "ABC" -h ubuntu1 repository:tag
+```
+
+## Một vài tham số khác:
 
 Tạo và chạy container, container tự xóa khi kết thúc thì thêm vào tham số --rm
 ```
