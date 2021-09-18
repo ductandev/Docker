@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/42485856/133894956-b66c5f2f-68f9-446b-933e-23d72359c98a.png)
+
 # Docker
 ```
 echo "# Docker" >> README.md
@@ -109,7 +111,7 @@ docker run -it imageid
 ```
 - -i  có nghĩa duy trì mở stdin để nhập lệnh.
 - -t  nó có nghĩa là console, cho phép kết nối với terminal để tương tác
-- 
+
 Kiểm tra thông tin phiên bản của image ubuntu:
 ```
 cat /etc/*release
@@ -166,6 +168,23 @@ docker stop name
 exit
 ```
 
+## 17. Đang đứng bên ngoài container nhưng muốn thi hành lệnh trong container đang chạy
+```
+docker exec CONTAINER lệnh                    VD: $ docker exec U1 ls 
+```
+
+```
+docker exec -it CONTAINER lệnh
+```
+- (tham số -it: nhận input và kết nối terminal + Tên container + lệnh thực thi ) ~ Lệnh này tương tự như lệnh attch \
+VD : docker exec -it U1 bash     --->         (lệnh bash kết nối luôn với terminal)
+
+
+## 18. Lưu container thành Images
+- Muốn commit CONTAINER nào trở thành IMAGE thì CONTAINER đó phải ở trạng thái **dừng**
+```
+docker commit CONTAINER IMAGE:TAG
+```
 
 ## Một vài tham số khác:
 
@@ -196,3 +215,4 @@ Nếu cần xóa bỏ hẳn một container thì dùng lệnh
 docker container rm containerid
 ```
 ![image](https://user-images.githubusercontent.com/42485856/133487593-b81f3306-9f5e-412c-a50d-9a49713c0e13.png)
+
