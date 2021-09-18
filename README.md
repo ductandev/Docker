@@ -116,10 +116,12 @@ cat /etc/*release
 ```
 
 ## 9. Đặt tên cho container, đặt hostname cho container 
-Cấu trúc: `docker run -it "CONTAINER NAME" -h HOSTNAME image`
+Cấu trúc: `docker run -it --name "CONTAINER NAME" -h HOSTNAME image`
 ```
 docker run -it --name "ABC" -h ubuntu1 repository:tag
 ```
+![image](https://user-images.githubusercontent.com/42485856/133892005-84f0cc2f-4acc-4b9e-b142-15d05b9433d1.png)
+
 
 ### 10. Kiểm tra có các container nào đang chạy
 ```
