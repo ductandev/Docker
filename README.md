@@ -90,7 +90,7 @@ docker container ls --all
 ## 5. Xóa một image (phải không có container nào đang chạy)
 ```
 docker image rm imageid                                                     Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
-docker image rm repository:tag
+docker image rm repository:tag                                              Thêm -f là bắt buộc xóa
 ```
 
 ## 6. Xóa container
@@ -177,13 +177,19 @@ docker exec CONTAINER lệnh                    VD: $ docker exec U1 ls
 docker exec -it CONTAINER lệnh
 ```
 - (tham số -it: nhận input và kết nối terminal + Tên container + lệnh thực thi ) ~ Lệnh này tương tự như lệnh attch \
-VD : docker exec -it U1 bash     --->         (lệnh bash kết nối luôn với terminal)
+VD : docker exec -it U1 bash ---> (lệnh bash kết nối luôn với terminal)
 
 
 ## 18. Lưu container thành Images
-- Muốn commit CONTAINER nào trở thành IMAGE thì CONTAINER đó phải ở trạng thái **dừng**
+Muốn commit **CONTAINER** nào trở thành **IMAGE** thì **CONTAINER** đó phải ở trạng thái "**dừng**"
 ```
-docker commit CONTAINER IMAGE:TAG
+docker commit CONTAINER IMAGE:TAG              VD: $ docker commit U1 ubuntu-nano:version1
+```
+![image](https://user-images.githubusercontent.com/42485856/133897653-01f094dc-3316-476c-a730-398b4569e326.png)
+
+## 19. Lưu Image ra thành file (Đóng gói )
+```
+docker save --output name.tar IMAGE_ID
 ```
 
 ## Một vài tham số khác:
