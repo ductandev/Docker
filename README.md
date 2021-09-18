@@ -1,5 +1,7 @@
 ![image](https://user-images.githubusercontent.com/42485856/133894956-b66c5f2f-68f9-446b-933e-23d72359c98a.png)🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
+
 ![](https://img.shields.io/badge/Docker%20build%F0%9F%90%B3%F0%9F%90%B3-Docker%20%F0%9F%90%B3%F0%9F%90%B3-blue)
+
 # Docker
 ```
 echo "# Docker" >> README.md
@@ -191,6 +193,17 @@ docker commit CONTAINER IMAGE:TAG              VD: $ docker commit U1 ubuntu-nan
 ```
 docker save --output name.tar IMAGE_ID
 ```
+
+## 20. Giải nén files.tar Image đã đóng gói
+```
+docker load -i file.tar
+```
+
+## 21. Đặt tên lại cho Image say giải nén
+```
+docker tag IMAGE_ID name:tag
+```
+
 
 ## Một vài tham số khác:
 
