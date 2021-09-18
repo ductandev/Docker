@@ -127,7 +127,7 @@ docker run -it --name "ABC" -h ubuntu1 repository:tag
 ![image](https://user-images.githubusercontent.com/42485856/133892005-84f0cc2f-4acc-4b9e-b142-15d05b9433d1.png)
 
 
-### 10. Kiểm tra có các container nào đang chạy
+## 10. Kiểm tra có các container nào đang chạy
 ```
 docker ps
 ```
@@ -189,7 +189,7 @@ docker commit CONTAINER IMAGE:TAG              VD: $ docker commit U1 ubuntu-nan
 ```
 ![image](https://user-images.githubusercontent.com/42485856/133897653-01f094dc-3316-476c-a730-398b4569e326.png)
 
-## 19. Lưu Image ra thành file (Đóng gói )
+## 19. Lưu Image thành file.tar (Đóng gói )
 ```
 docker save --output name.tar IMAGE_ID
 ```
@@ -199,9 +199,9 @@ docker save --output name.tar IMAGE_ID
 docker load -i file.tar
 ```
 
-## 21. Đặt tên lại cho Image say giải nén
+## 21. Đặt tên lại cho Image sau giải nén
 ```
-docker tag IMAGE_ID name:tag
+docker tag IMAGE_ID name:tag                                   VD: $ docker tag b5 ubuntu1:version2  
 ```
 
 
