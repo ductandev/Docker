@@ -28,7 +28,7 @@ sudo usermod -aG docker $USER
 ```
 Logout sau đó login lại để có hiệu lực.
 
-=====================================================================================
+============================================================================
 ```
 $ docker                      Liệt kê tất cả các lệnh con trong docker
 $ docker image --help         Đưa ra các hướng dẫn trợ giúp về các lệnh con có trong image, và tương tự với các lệnh khác
