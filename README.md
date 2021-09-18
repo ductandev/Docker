@@ -108,12 +108,20 @@ docker run -it repository:tag
 docker run -it imageid                                                    
 ```
 - -i  có nghĩa duy trì mở stdin để nhập lệnh.
-- -t  nó có nghĩa là console, cho phép kết nối với terminal để tương tác \
+- -t  nó có nghĩa là console, cho phép kết nối với terminal để tương tác
+- 
 Kiểm tra thông tin phiên bản của image ubuntu:
 ```
 cat /etc/*release
 ```
-### 9. Kiểm tra có các container nào đang chạy
+
+## 9. Đặt tên cho container, đặt hostname cho container 
+Cấu trúc: `docker run -it "CONTAINER NAME" -h HOSTNAME image`
+```
+docker run -it --name "ABC" -h ubuntu1 repository:tag
+```
+
+### 10. Kiểm tra có các container nào đang chạy
 ```
 docker ps
 ```
@@ -122,45 +130,40 @@ Nếu muốn liệt kê tất cả các container kể cả những container kh
 docker ps -a
 ```
 
-## 10. Vào termial container đang chạy
+## 11. Vào termial container đang chạy
 ```
 docker attach containerid
 docker container attach containerid
 ```
 
-## 11. Chạy container đang dừng
+## 12. Chạy container đang dừng
 ```
 docker start containerid
 docker container start -i containerid
 ```
 
-## 12. Chạy một lệnh trên container đang chạy
+## 13. Chạy một lệnh trên container đang chạy
 ```
 docker exec -it containerid command
 ```
 
-## 13. Thoát termial vẫn giữ container đang chạy
+## 14. Thoát termial vẫn giữ container đang chạy
 ```
 CTRL + P, CTRL + Q
 CRT + P rồi Q
 ```
 
-## 14. Đang đứng ở host ép container bắt buộc dừng lại
+## 15. Đang đứng ở host ép container bắt buộc dừng lại
 ```
 docker stop containerid
 docker stop name
 ```
 
-## 15. Dừng và thoát hẳn container trong terminal
+## 16. Dừng và thoát hẳn container trong terminal
 ```
 exit
 ```
 
-## 16. Đặt tên cho container, đặt hostname cho container 
-Cấu trúc: `docker run -it "CONTAINER NAME" -h HOSTNAME image`
-```
-docker run -it --name "ABC" -h ubuntu1 repository:tag
-```
 
 ## Một vài tham số khác:
 
