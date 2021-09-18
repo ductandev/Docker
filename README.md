@@ -85,7 +85,7 @@ docker container ls --all
 - **COMMAND** : cho biết lệnh, ứng dụng chạy khi container chạy (/bin/bash là terminate)
 - **STATUS** : cho biết trạng thái, (exit - đang dừng)
 
-## 5. Xóa một image (phải không container nào đang chạy)
+## 5. Xóa một image (phải không có container nào đang chạy)
 ```
 docker image rm imageid                                                     Chỉ cần ghi ký tự đầu của IMAGE ID docker vẫn hiểu và tự xóa
 docker image rm repository:tag
