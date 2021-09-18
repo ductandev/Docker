@@ -43,7 +43,10 @@ Khi một phiên bản của [image]() chạy, phiên bản chạy đó gọi l�
 
 Bước đầu, để có [image]() nào đó bạn tải về từ https://hub.docker.com/search?q=&type=image, tại đó có đủ các loại phù hợp với công việc của bạn!
 
-- **Repository**: là tên của image
+![image](https://user-images.githubusercontent.com/42485856/133891060-72aa2669-a4db-40de-8c9d-46cb9b099085.png)
+
+
+- **REPOSITORY**: là tên của image
 - **TAG**: là phiên bản của image, với giá trị latest có nghĩa là bản cuối. Muốn tải về bản khác latest vào mục TAGS trên https://hub.docker.com/search?q=&type=image tìm bản phù hợp.
 - **IMAGE ID**: là một chuỗi định danh duy nhất của image trên hệ thống của bạn.
 ```
