@@ -46,9 +46,9 @@ Bước đầu, để có [image]() nào đó bạn tải về từ https://hub.
 ![image](https://user-images.githubusercontent.com/42485856/133891060-72aa2669-a4db-40de-8c9d-46cb9b099085.png)
 
 
-- **REPOSITORY**: là tên của image
-- **TAG**: là phiên bản của image, với giá trị latest có nghĩa là bản cuối. Muốn tải về bản khác latest vào mục TAGS trên https://hub.docker.com/search?q=&type=image tìm bản phù hợp.
-- **IMAGE ID**: là một chuỗi định danh duy nhất của image trên hệ thống của bạn.
+- **REPOSITORY** : là tên của image
+- **TAG** : là phiên bản của image, với giá trị latest có nghĩa là bản cuối. Muốn tải về bản khác latest vào mục TAGS trên https://hub.docker.com/search?q=&type=image tìm bản phù hợp.
+- **IMAGE ID** : là một chuỗi định danh duy nhất của image trên hệ thống của bạn.
 ```
 $ docker search ubuntu                                                      Tìm kiếm các phiên bản trực tiếp bằng lệnh docker
 ```
@@ -80,10 +80,10 @@ docker container ls --all
 ```
 ![image](https://user-images.githubusercontent.com/42485856/133483878-2abf20bf-aa8d-4d7d-b581-d768da346cc1.png)
 
-- **CONTAINER ID**: một con số (mã hash) gán cho container, bạn dùng mã này để quản lý container này, như xóa bỏ, khởi động, dừng lại ...
-- **IMAGE**: cho biết container sinh ra từ image nào.
-- **COMMAND**: cho biết lệnh, ứng dụng chạy khi container chạy (/bin/bash là terminate)
-- **STATUS**: cho biết trạng thái, (exit - đang dừng)
+- **CONTAINER ID** : một con số (mã hash) gán cho container, bạn dùng mã này để quản lý container này, như xóa bỏ, khởi động, dừng lại ...
+- **IMAGE** : cho biết container sinh ra từ image nào.
+- **COMMAND** : cho biết lệnh, ứng dụng chạy khi container chạy (/bin/bash là terminate)
+- **STATUS** : cho biết trạng thái, (exit - đang dừng)
 
 ## 5. Xóa một image (phải không container nào đang chạy)
 ```
