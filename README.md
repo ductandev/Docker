@@ -203,6 +203,15 @@ docker load -i file.tar
 ```
 docker tag IMAGE_ID name:tag                                   VD: $ docker tag b5 ubuntu1:version2  
 ```
+## 22. Chia sẻ dữ liệu giữa máy host vào container
+```
+docker run -it -v pathHost:pathContainer ImageID              VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu b5a2 
+```
+Tạo thêm file 2.txt trong container 
+`echo "Hello" > 2.txt`
+
+![image](https://user-images.githubusercontent.com/42485856/133920648-9b66ac3e-7c26-4a15-a88d-4dff896c3841.png)
+
 
 
 ## Một vài tham số khác:
