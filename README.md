@@ -203,13 +203,13 @@ docker load -i file.tar
 ```
 docker tag IMAGE_ID name:tag                                   VD: $ docker tag b5 ubuntu1:version2  
 ```
-===========
+==================================================
 ## 22. Chia sẻ dữ liệu giữa máy host vào container
-**Khởi tạo** và **chạy** một container mới và đồng thời **chia sẻ dữ liệu của máy host vào container**
+'**Khởi tạo**' và '**chạy**' một container mới và đồng thời '**chia sẻ dữ liệu của máy host vào container**'
 ```
 docker run -it -v pathHost:pathContainer ImageID                        VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu b5a2 
 ```
-**Khởi tạo** và **đặt tên** và **chạy** một container mới và đồng thời **chia sẻ dữ liệu của máy host vào container**
+'**Khởi tạo**' và '**đặt tên**' và '**chạy**' một container mới và đồng thời '**chia sẻ dữ liệu của máy host vào container**'
 ```
 docker run -it -v pathHost:pathContainer --name "ABC" ImageID           VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu --name C1 b5 
 ```
