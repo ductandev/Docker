@@ -1,17 +1,8 @@
+
+# Docker
 ![image](https://user-images.githubusercontent.com/42485856/133894956-b66c5f2f-68f9-446b-933e-23d72359c98a.png)🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 ![](https://img.shields.io/badge/Docker%20build%F0%9F%90%B3%F0%9F%90%B3-Docker%20%F0%9F%90%B3%F0%9F%90%B3-blue)
-
-# Docker
-```
-echo "# Docker" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/ductandev/Docker.git
-git push -u origin main
-```
 
 ## Cài Docker trên Ubuntu
 
@@ -304,3 +295,14 @@ docker container rm containerid
 ```
 ![image](https://user-images.githubusercontent.com/42485856/133487593-b81f3306-9f5e-412c-a50d-9a49713c0e13.png)
 
+![image](https://user-images.githubusercontent.com/42485856/133974775-113d4a6f-1272-4f46-aeae-4cc0a5314a90.png)
+- **Docker Client:** là cách mà bạn tương tác với docker thông qua command trong terminal. Docker Client sẽ sử dụng API gửi lệnh tới Docker Daemon.
+- **Docker Daemon:** là server Docker cho yêu cầu từ Docker API. Nó quản lý images, containers, networks và volume.
+- **Docker Volumes:** là cách tốt nhất để lưu trữ dữ liệu liên tục cho việc sử dụng và tạo apps.
+- **Docker Registry:** là nơi lưu trữ riêng của Docker Images. Images được push vào registry và client sẽ pull images từ registry. Có thể sử dụng registry của riêng bạn hoặc registry của nhà cung cấp như : AWS, Google Cloud, Microsoft Azure.
+- **Docker Hub:** là Registry lớn nhất của Docker Images ( mặc định). Có thể tìm thấy images và lưu trữ images của riêng bạn trên Docker Hub ( miễn phí).
+- **Docker Repository:** là tập hợp các Docker Images cùng tên nhưng khác tags. VD: golang:1.11-alpine.
+- **Docker Networking:** cho phép kết nối các container lại với nhau. Kết nối này có thể trên 1 host hoặc nhiều host.
+- **Docker Compose:** là công cụ cho phép run app với nhiều Docker containers 1 cách dễ dàng hơn. Docker Compose cho phép bạn config các command trong file docker-compose.yml để sử dụng lại. Có sẵn khi cài Docker.
+- **Docker Swarm:** để phối hợp triển khai container.
+- **Docker Services:** là các containers trong production. 1 service chỉ run 1 image nhưng nó mã hoá cách thức để run image — sử dụng port nào, bao nhiêu bản sao container run để service có hiệu năng cần thiết và ngay lập tức.
