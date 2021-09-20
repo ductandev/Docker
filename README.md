@@ -269,7 +269,100 @@ docker volume prune
 ```
 ================================================================
 ## 25. Giới Thiệu Image BusyBox
-'**Busybox**' là một Image rất nhỏ gọn nhưng trong đó có chứa rất nhiều công cụ dựa trên nền tảng linux https://busybox.net/downloads/BusyBox.html và chứa hàng trăm lệnh linux thông dụng
+'**Busybox**' là một Image rất nhỏ gọn nhưng trong đó có chứa rất nhiều công cụ dựa trên nền tảng linux https://busybox.net/downloads/BusyBox.html và chứa hàng trăm lệnh linux thông dụng. Tải Busybox `docker pull busybox`
+- Tạo container busybox và tự xóa khi kết thúc `docker run -it --rm busybox`
+- Kiểm tra lệnh busybox `ls /bin/ -la`
+
+## 26. Giới thiệu mạng network trong docker, mạng bridge
+Kiểm tra xem trong docker có mạng nào
+```
+docker network ls                       (đây là 3 network mặc định khi tạo ngay khi cài đặt docker)
+```
+Mạng **bridge** được các container khi tạo ra mặc định nó kết nối vào nếu chúng ta ko chỉ định 1 mạng cụ thể nào đó. Muốn tra cứu thông tin về 1 network nào đó, cũng như kiểm tra xem network đó đang có container nào kết nối vào thì chúng ta sử dụng lệnh
+```
+docker network inspect bridge
+docker inspect B1
+docker inspect ContainerID
+```
+Kiểm tra xem 2 container B1 và B2 đã liên mạng được với nhau hay chưa
+```
+ping 172.17.0.3
+```
+Trong image busybox nó có sẵn 1 công cụ để tạo máy chủ '**http**'. Ví dụ ở đây chúng ta sẽ cho container B2 chạy máy chủ '**http**'.
+```
+docker attach B2
+```
+Vào thư mục '**cd /var/www**' chúng ta vào thư mục '**www**' và bây giờ ta sẽ chạy lệnh để máy chủ '**http**' làm việc trên thư mục này. 
+```
+httpd
+```
+Như vậy là máy chủ '**http**' đang làm việc và mặc định và nó đang lắng nghe các yêu cầu các requirest gửi đến ở **cổng 80** của container.
+Tạo file index.html
+```
+vi index.html
+```
+Như vậy là hiện tại container B2 đang có 1 máy chủ '**http**' chạy và đang lắng nghe **cổng 80**. Thì như chúng ta đã biết container B1 và B2 đang cùng 1 mạng. Như vậy là từ B1 có thể gữi yêu cầu được đến B2 thông qua địa chỉ **IP** và **cổng 80** của B2. Bây giờ sẽ vào container B1 requirest đến container B2
+```
+docker attach B1
+```
+```
+wget -o - 172.17.0.3
+```
+![image](https://user-images.githubusercontent.com/42485856/134035128-cf03216f-a329-4583-9b8f-de28ba06a93e.png)
+
+Như vậy là web server của B2 đã gửi trả về nội dung file index.html và B1 đã đọc được đó là file index.html với nội dung '**web server is running ...**'. Như vậy là container B1 truy cập được đến B2 thông qua **cổng 80**
+
+![image](https://user-images.githubusercontent.com/42485856/134036884-ec6bf0ed-41b3-4137-bd4c-6da7d4ec1ae4.png)
+
+Đang từ ngoài mạng của máy Host muốn truy cập đến container B2 thông qua địa chỉ **IP** của máy host **127.0.0.1** thì chúng ta phải ánh xạ cái **cổng 80** của B2 vào 1 cái cổng nào đó theo cái địa chỉ **IP** của máy Host. Bây giờ chúng ta sẽ thiết lập truy cập tới **cổng 80** của container B2 thông qua **cổng 8888** của **IP máy host 127.0.0.1** Thì để làm điều đó thì khi tạo container thì chúng ta phải ánh xạ cổng của container vào cái cổng nào đó của máy host. Thì chúng ta làm điều đó như sau chúng ta xóa đi container B2 tạo lại container B2 có ánh xạ **cổng 80** vào **cổng 8888**.
+Để thiết lập ánh xạ cổng giữa container và máy host thì chúng ta sử dụng tham số '**-p**'và cổng muốn ánh xạ từ máy host vào container 
+```
+docker run -it --name B2 -p 8888:80 busybox 
+```
+![image](https://user-images.githubusercontent.com/42485856/134042882-2409020c-ae5a-498b-a566-56a0ea1c4e87.png)
+![image](https://user-images.githubusercontent.com/42485856/134040569-7b502db0-d37a-47f5-966c-6a5741075ebd.png)
+
+- Ngoài những network mặc định mà docker đã tạo ra thì chúng ta cũng có thể tạo thêm nhiều mạng cầu bridge khác áp dụng cho trường hợp chúng ta ko muốn tất cả container nối vào 1 mạng, mà chúng ta muốn tạo ra những mạng khác nhau để chúng ta cách ly một số container với nhau
+- Tạo mạng bride
+```
+docker network create --driver bridge network1
+```
+Xóa một network
+```
+docker network rm Name
+```
+Tạo một container mới và cho thiết lập với mạng muốn thiết lập từ ban đầu
+```
+docker run -it --name B3 --network mynetwork busybox 
+```
+Tạo container B4 có ánh xạ **cổng 9999** của máy **Host** vào **cổng 80** của **B4** và kết nối vào bridge mynetwork vừa tạo
+```
+docker run -it --name B4 --network mynetwork -p 9999:80 busybox  
+```
+Và mạng của chúng ta sẽ như sau:
+
+![image](https://user-images.githubusercontent.com/42485856/134047978-556c998a-e393-4d03-93c9-20252ad7157c.png)
+
+![image](https://user-images.githubusercontent.com/42485856/134048378-42c631a7-9a9d-4ce2-8fc1-02ca54877011.png)
+
+### Gán network cho một container đang tồn tại hoặc đang chạy
+Để cho container B3 kết nối được với cả 2 network **mynetwork** và **bridge** thì thực hiện lệnh
+```
+docker network connect bridge B3
+```
+Như vậy là B3 đã có thể kết nối 2 network **mynetwork** và **bridge**
+![image](https://user-images.githubusercontent.com/42485856/134049834-e89949d0-6f22-467d-8bf8-8362687c2193.png)
+Thử ping đến **cổng 80** của B2
+```
+wget -O - 172.17.0.3
+wget -O - B4
+ping B4
+```
+
+
+
+
+
 
 ## Một vài tham số khác:
 
