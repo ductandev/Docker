@@ -204,7 +204,9 @@ docker load -i file.tar
 docker tag IMAGE_ID name:tag                                   VD: $ docker tag b5 ubuntu1:version2  
 ```
 ==================================================
-## 22. Chia sẻ dữ liệu giữa máy host vào container
+## 22. Chia sẻ dữ liệu giữa Docker Host vào container
+![image](https://user-images.githubusercontent.com/42485856/133965437-c7d6cdca-8a4b-42ce-aabc-f822e9781ac3.png)
+
 '**Khởi tạo**' và '**chạy**' một container mới và đồng thời '**chia sẻ dữ liệu của máy host vào container**'
 ```
 docker run -it -v pathHost:pathContainer ImageID                        VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu b5a2 
@@ -213,31 +215,63 @@ docker run -it -v pathHost:pathContainer ImageID                        VD: $ do
 ```
 docker run -it -v pathHost:pathContainer --name "ABC" ImageID           VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu --name C1 b5 
 ```
-Tạo thêm file 2.txt trong container, nếu xóa đi container thì dữ liệu này vẫn tồn tại trên máy host
-`echo "Hello" > 2.txt`
+`echo "Hello" > 2.txt` Tạo thêm file 2.txt trong container, nếu xóa đi container thì dữ liệu này vẫn tồn tại trên máy host
+
 
 ![image](https://user-images.githubusercontent.com/42485856/133920648-9b66ac3e-7c26-4a15-a88d-4dff896c3841.png)
 
 ## 23. Chia sẻ dữ liệu giữa các container
 ```
-docker run -it --volumes-from OtherContainer ImageID
+docker run -it --volumes-from OtherContainer ImageID                    VD: $ docker run -it --name C4 --volumes-from C3 fb 
 ```
-Tạo thêm file .txt `touch 3.txt`
+`touch 3.txt` Tạo thêm file 3.txt 
 
-## 24. Tạo Volume, docker volume creat
+## 24. Chia sẻ dữ liệu qua volume, tạo Volume, docker volume creat
+Chia sẽ dữ liệu thông qua, '**tạo**' hoặc '**quản lý**' các ổ đĩa
+
+- Kiểm tra xem có Volume nào đang tồn lại
 ```
 docker volume ls
+```
+- Tạo Volume
+```
 docker volume creat NAMEDISK                                VD: $ docker volume create D1  
 ```
-Muốn Kiểm tra thông tin ổ đĩa D1
+- Kiểm tra thông tin ổ đĩa 
 ```
-docker volume inspect name
+docker volume inspect VOLUME_NAME
 ```
+- Xóa ổ đĩa Volume
+```
+docker rm volume VOLUME_NAME
+```
+### Mount một ổ đĩa vào container (--mount)
+- Tạo và quản lý ỗ đĩa
+- Gán ổ đĩa VOLUME_NAME vào container để container lưu dữ liệu cố định ở trong đó. Ổ đĩa này container có thể lưu trữ các dữ liệu của nó vào đó mà những dữ liệu này ko mất đi khi chúng ta xóa container
+```
+docker run -it --name "ABC" --mount source=VOLUME_NAME,target=pathContainer ImageID
 
+VD: $ docker run -it --name C1 --mount source=D2,target=/home/disk2 ubuntu:latest 
+```
+### Gán ổ đĩa vào container khi tạo container (-v)
+- Tạo ra ổ đĩa mà nó ánh xạ dữ liệu đến 1 thư mục cụ thể nào đó mà ta ấn định ra ở trong máy host
+- Nếu muốn ổ đĩa bind(trói buộc) dữ liệu đến một thư mục cụ thể của máy HOST thì tạo ổ đĩa với tham số như sau:
+```
+docker volume create --opt device=pathHOST --opt type =none --opt o=bind VOLUME_NAME
 
+VD: $ docker volume create --opt device=~/Desktop/dulieu/ --opt type=none --opt o=bind DISK1            (DISK1: tên VOLUME_NAME muốn đặt)
+VD: $ docker volume create --opt device=/home/tan/Desktop/dulieu --opt type=none --opt o=bind DISK1     (DISK1: tên VOLUME_NAME muốn đặt)
+```
+- Sau đó ổ đĩa này gán vào container với tham số -v (không dùng --mount)
+```
+docker run -it -v VOLUME_NAME:pathContainer ImageID
 
-
-
+VD: $ docker run -it -v DISK1:/home/disk ubuntu:latest 
+```
+- Xóa tất cả các ổ đĩa không được sử dụng bởi container nào:
+```
+docker volume prune
+```
 
 
 ## Một vài tham số khác:
