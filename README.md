@@ -3,7 +3,9 @@
 ![image](https://user-images.githubusercontent.com/42485856/133894956-b66c5f2f-68f9-446b-933e-23d72359c98a.png)🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
 
 ![](https://img.shields.io/badge/Docker%20build%F0%9F%90%B3%F0%9F%90%B3-Docker%20%F0%9F%90%B3%F0%9F%90%B3-blue)
-
+## Tham khảo:
+https://xuanthulab.net/chia-se-du-lieu-giua-docker-host-va-container.html \
+https://topdev.vn/blog/docker-la-gi-kien-thuc-co-ban-ve-docker/
 ## Cài Docker trên Ubuntu
 
 Chạy các lệnh để cài đặt:
@@ -196,6 +198,7 @@ docker tag IMAGE_ID name:tag                                   VD: $ docker tag 
 ```
 ==================================================
 ## 22. Chia sẻ dữ liệu giữa Docker Host vào container
+Cách mount thư mục máy Host hoặc tạo ổ đĩa để chia sẻ dữ liệu vào Container cũng như chia sẻ dữ liệu các container với nhau. cách chia sẻ dữ liệu giữa máy Host và Container, giữa các Container với nhau bằng cách sử dụng một thư mục trên máy Host làm nơi lưu trữ tập trung. Máy Host là hệ thống bạn đang chạy Docker Engine. Một thư mục của máy Host có thể chia sẻ để các Container đọc, lưu dữ liệu.
 ![image](https://user-images.githubusercontent.com/42485856/133965437-c7d6cdca-8a4b-42ce-aabc-f822e9781ac3.png)
 
 '**Khởi tạo**' và '**chạy**' một container mới và đồng thời '**chia sẻ dữ liệu của máy host vào container**'
