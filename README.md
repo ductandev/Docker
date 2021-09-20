@@ -1,6 +1,7 @@
 
 # Docker
-![image](https://user-images.githubusercontent.com/42485856/133894956-b66c5f2f-68f9-446b-933e-23d72359c98a.png)🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳
+![image](https://user-images.githubusercontent.com/42485856/133894956-b66c5f2f-68f9-446b-933e-23d72359c98a.png)![image](https://user-images.githubusercontent.com/42485856/133977839-8199f672-a185-4966-bd5b-3f6ffdae1fd1.png) 🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳🐳 
+
 
 ![](https://img.shields.io/badge/Docker%20build%F0%9F%90%B3%F0%9F%90%B3-Docker%20%F0%9F%90%B3%F0%9F%90%B3-blue)
 ## Tham khảo:
