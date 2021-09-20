@@ -203,14 +203,40 @@ docker load -i file.tar
 ```
 docker tag IMAGE_ID name:tag                                   VD: $ docker tag b5 ubuntu1:version2  
 ```
+===========
 ## 22. Chia sẻ dữ liệu giữa máy host vào container
+**Khởi tạo** và **chạy** một container mới và đồng thời **chia sẻ dữ liệu của máy host vào container**
 ```
-docker run -it -v pathHost:pathContainer ImageID              VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu b5a2 
+docker run -it -v pathHost:pathContainer ImageID                        VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu b5a2 
 ```
-Tạo thêm file 2.txt trong container 
+**Khởi tạo** và **đặt tên** và **chạy** một container mới và đồng thời **chia sẻ dữ liệu của máy host vào container**
+```
+docker run -it -v pathHost:pathContainer --name "ABC" ImageID           VD: $ docker run -it -v ~/Desktop/dulieu:/home/dulieu --name C1 b5 
+```
+Tạo thêm file 2.txt trong container, nếu xóa đi container thì dữ liệu này vẫn tồn tại trên máy host
 `echo "Hello" > 2.txt`
 
 ![image](https://user-images.githubusercontent.com/42485856/133920648-9b66ac3e-7c26-4a15-a88d-4dff896c3841.png)
+
+## 23. Chia sẻ dữ liệu giữa các container
+```
+docker run -it --volumes-from OtherContainer ImageID
+```
+Tạo thêm file .txt `touch 3.txt`
+
+## 24. Tạo Volume, docker volume creat
+```
+docker volume ls
+docker volume creat NAMEDISK                                VD: $ docker volume create D1  
+```
+Muốn Kiểm tra thông tin ổ đĩa D1
+```
+docker volume inspect name
+```
+
+
+
+
 
 
 
