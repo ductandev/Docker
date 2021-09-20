@@ -267,7 +267,9 @@ VD: $ docker run -it -v DISK1:/home/disk ubuntu:latest
 ```
 docker volume prune
 ```
-
+================================================================
+## 25. Giới Thiệu Image BusyBox
+'**Busybox**' là một Image rất nhỏ gọn nhưng trong đó có chứa rất nhiều công cụ dựa trên nền tảng linux https://busybox.net/downloads/BusyBox.html và chứa hàng trăm lệnh linux thông dụng
 
 ## Một vài tham số khác:
 
